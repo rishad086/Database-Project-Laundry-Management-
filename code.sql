@@ -204,7 +204,7 @@ SELECT emp_id,emp_name FROM employee ORDER BY register_id desc;
 select emp_id,emp_name FROM employee
 order by emp_age, register_id; --multi-column ordering(lab 04)
 
-select emp_id,emp_name FROM employee
+select emp_id,emp_name  FROM employee
 order by emp_age, register_id desc;
 
 --Use of DISTINCT
