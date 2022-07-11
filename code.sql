@@ -209,3 +209,57 @@ order by emp_age, register_id desc;
 
 --Use of DISTINCT
 select distinct (register_id) from register;
+
+
+--Lab 04:
+
+
+
+--Pattern Matching
+select emp_id,customer_id from orders
+where order_type like '%foam%';
+
+select emp_id,customer_id from orders
+where order_type like 'dry%';
+
+select emp_id,customer_id from orders
+where order_type like '%wash';
+
+--aggregate functions:
+select  max(payment_amount) from payment;
+
+select min(payment_amount) from payment;
+
+select  sum(payment_amount) from payment;
+
+select count(emp_id) from employee;
+
+select count(*) from employee;
+
+select count(distinct (payment_amount)) from payment;
+
+select  avg(payment_amount) from payment;
+
+select  avg(nvl(emp_id,0)) from employee;
+
+
+
+-- --GROUP BY clause
+-- select count(comment_id),user_id from comments group by user_id;
+-- select count(comment_id),user_id from comments where post_id >5 group by user_id;
+
+-- --HAVING clause
+-- select count(comment_id),user_id from comments  group by user_id having user_id >5;
+-- select count(comment_id),user_id from comments  group by user_id having count(user_id)>1;
+
+--set operations
+
+--union all operation
+select order_type,order_date from orders where emp_id>303 and emp_id<=305
+union all  --selected column is same in no. and same order of data types
+select customer_first_name,customer_last_name from customer where customer_id>202 and customer_id<204;
+
+--union operation
+select emp_id from employee where emp_id<305
+union
+select customer_id from customer where customer_id <205;
